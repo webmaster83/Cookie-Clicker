@@ -1,6 +1,4 @@
 
-(function() {
-
 
 var score = 0;
 var multiplicateur = 1;
@@ -17,8 +15,5 @@ document.getElementById("clic").addEventListener("click", function() {
     console.log(multiplicateur);
 
 })
-
-
-
 
 })();
