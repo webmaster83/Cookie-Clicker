@@ -40,8 +40,3 @@ score += multiplicateur ;
       document.getElementById("multiplier").innerHTML = "multiplier X" + multiplicateur + " Coût prochain achat: " + 10 * multiplicateur;
 }
 })
-
-
-
-
-})();
