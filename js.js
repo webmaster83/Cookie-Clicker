@@ -2,7 +2,7 @@
 
 (function() {
 
-var score = 0;
+var score = 1;
 
 document.getElementById("clic").addEventListener("click", function() {
   score ++;
