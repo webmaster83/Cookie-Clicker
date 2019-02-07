@@ -29,6 +29,16 @@ $(document).ready( function(){
 	$("#clic").click(function(){
 		score += multiplicateur;
 		$("#affichage").text(score);
+		
+		/*augmente du multiplicateur automatiquement */
+		
+			if ( score >= 30) {
+		setInterval (function(){ 
+		score = score  +  multiplicateur;
+		$("#affichage").text(score);
+		}, 1500);
+	}
+		
 	});
 	
 	$("#multiplier").click(function(){
@@ -41,14 +51,14 @@ $(document).ready( function(){
 			$("#affichage").text(score); // affiche
 			multiplicateur ++;	// on incremente +1
 			console.log(multiplicateur);
-			$("#multiplier").text( " Multiplicateur x"+ multiplicateur+ ' cout prochain achat ' + 10 * multiplicateur );
+			$("#multiplier").text( " Multiplicateur x"+ multiplicateur+ ' coût prochain achat ' + 10 * multiplicateur );
 	
-						}
+						}	
+	
+	
 		
-	
-		//$("#multiplier").text( " Multiplicateur x"+ multiplicateur);
 	
 	});
 	
-	
+
 });
