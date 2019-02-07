@@ -34,7 +34,16 @@ $(document).ready( function(){
 		if ( score >= 10 ){
 		score = score - 10;
 		$("#affichage").text(score);
-		
+			
+			
+		var clicks = $(this).data("clicks");
+			if (clicks){
+				score = score - 10;
+				
+			} else {
+				score = (score - 10)*2;
+			}
+		 
 	} 
 		
 	
