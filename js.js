@@ -22,7 +22,7 @@
 
 
 $(document).ready( function(){
-	
+	//var cookie = false ;
 	var score = 0 ;
 	var multiplicateur = 1;
 	
@@ -30,7 +30,7 @@ $(document).ready( function(){
 		score += multiplicateur;
 		$("#affichage").text(score);
 		
-		/*augmente du multiplicateur automatiquement */
+		/*augmente de  automatiquement */
 		
 			if ( score >= 30) {
 		setInterval (function(){ 
@@ -38,9 +38,23 @@ $(document).ready( function(){
 		$("#affichage").text(score);
 		}, 1500);
 	}
+		if ( score >=35 ){
+				$("button").removeAttr("disabled");	
+			
+		}
 		
 	});
+	/* au clic de l'auto-cliker*/
 	
+$("#autoclic").one('click', function(){
+
+	$(this).attr("disabled", "disabled");
+	score = score - 35 ;
+	//cookie = true;
+	
+});
+	
+	/**/
 	$("#multiplier").click(function(){
 		
 		//console.log(multiplicateur);
@@ -60,5 +74,9 @@ $(document).ready( function(){
 	
 	});
 	
+	if ($("#affichage").text(score) >= 30 ){
+			
+			$("#autoclic").attr("enable");
+		}
 
 });
