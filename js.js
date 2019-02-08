@@ -6,6 +6,8 @@ var multiplicateur = 1;
 
 var conteurAutoclic = 0;
 
+    var n = 10;
+
 document.getElementById("autoclic").disabled = true;
 document.getElementById("bonus").disabled = true;
 
@@ -62,15 +64,18 @@ if (score>=10){
 
 
   document.getElementById("multiplier").addEventListener("click", function(augmenterMultiplicateur) {
-    if (score - 10 * multiplicateur < 0){
+
+    if (score - n < 0){
      alert("Tu n'as pas assez de crédit!");
    }
    else {
-     score = score - 10 * (multiplicateur);
+     score = score - n ;
      document.getElementById("affichage").innerHTML = score;
      multiplicateur ++;
+     n = n * 2;
      console.log(multiplicateur);
-     document.getElementById("multiplier").innerHTML = "multiplier X" + multiplicateur + " Coût prochain achat: " + 10 * multiplicateur;
+     document.getElementById("multiplier").innerHTML = "multiplier X" + multiplicateur + " Coût prochain achat: " + n;
+     console.log(n);
 }
 
 
