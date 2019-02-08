@@ -25,6 +25,7 @@ $(document).ready( function(){
 	//var cookie = false ;
 	var score = 0 ;
 	var multiplicateur = 1;
+	var prixAmine = 50 ; 
 	$("#autoclic").attr("disabled", "disabled");
 	$("#clic").click(function(){
 		score += multiplicateur;
@@ -32,13 +33,13 @@ $(document).ready( function(){
 		
 		/*augmente de  automatiquement */
 		
-			if ( score >= 30) {
+			if ( score >= 500) {
 		setInterval (function(){ 
 		score = score  +  multiplicateur;
 		$("#affichage").text(score);
 		}, 1500);
 	}
-		if ( score >=35 ){
+		if ( score >=500 ){
 				$("button").removeAttr("disabled");	
 			
 		}
@@ -49,7 +50,7 @@ $(document).ready( function(){
 $("#autoclic").one("click", function(){
 
 	$(this).attr("disabled", "disabled");
-	score = score - 35 ;
+	score = score - 500 ;
 	//cookie = true;
 	
 });
@@ -58,14 +59,17 @@ $("#autoclic").one("click", function(){
 	$("#multiplier").click(function(){
 		
 		//console.log(multiplicateur);
-		if ( score - 10 * multiplicateur < 0 ){
+		if ( score - prixAmine < 0 ){
 			$("#affichage").text("Tu ne peux pas car le score sera NEGATIF. :-) ");	 
 						} else {
-			score = score - 10 * multiplicateur;	// sinon on garde notre calcul ( le le fait )
+			score = score - prixAmine;	// sinon on garde notre calcul ( le le fait )
 			$("#affichage").text(score); // affiche
 			multiplicateur ++;	// on incremente +1
+			prixAmine = prixAmine * 2 ;				
 			console.log(multiplicateur);
-			$("#multiplier").text( " Multiplicateur x"+ multiplicateur+ ' coût prochain achat ' + 10 * multiplicateur );
+			//var nombre = $("#affichage").text();
+			//var calcul = parseInt(nombre) * 2 ;				
+			$("#multiplier").text( " Multiplicateur x"+ multiplicateur+ ' coût prochain achat ' + prixAmine  );
 	
 						}	
 	
@@ -74,7 +78,7 @@ $("#autoclic").one("click", function(){
 	
 	});
 	
-	if ($("#affichage").text(score) >= 30 ){
+	if ($("#affichage").text(score) >= 500 ){
 			
 			$("#autoclic").attr("enable");
 		}
