@@ -21,7 +21,7 @@ document.getElementById("multiplier").disabled = true;
   score -= 5;
   console.log(conteurAutoclic);
 
-  var autoclick = setInterval(function(){
+   setInterval(function(){
     if (score >= 10) {
       score += multiplicateur ;
       document.getElementById("affichage").innerHTML = score;
@@ -67,7 +67,7 @@ var timer = setInterval(function(){
 document.getElementById("affichage").innerHTML = score;
 
   }
-  )
+  );
 
 
 if (score - n >= 0) {
@@ -80,7 +80,7 @@ if (score - n >= 0) {
   document.getElementById("affichage").innerHTML = score;
 
 
-  })
+  });
 
 
 
@@ -99,6 +99,6 @@ if (score - n >= 0) {
 
 
 
-})
+});
 
 })();
