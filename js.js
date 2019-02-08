@@ -50,10 +50,11 @@ if (score>=10){
 
 }
 
+
   document.getElementById("bonus").addEventListener("click", function() {
 
-        document.getElementById("bonus").disabled = true;
-        console.log(score - 10);
+
+        score = score - 10;
         var timeleft = 30;
 
 var timer = setInterval(function(){
@@ -65,9 +66,13 @@ var timer = setInterval(function(){
 }}, 1000);
 
 document.getElementById("affichage").innerHTML = score;
-
+document.getElementById("bonus").disabled = true;
   }
   );
+
+
+
+
 
 
 if (score - n >= 0) {
