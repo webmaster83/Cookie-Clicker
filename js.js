@@ -6,11 +6,13 @@ var multiplicateur = 1;
 
 var conteurAutoclic = 0;
 
-    var n = 10;
+var n = 10;
+
+
 
 document.getElementById("autoclic").disabled = true;
 document.getElementById("bonus").disabled = true;
-
+document.getElementById("multiplier").disabled = true;
 
 
   document.getElementById("autoclic").addEventListener("click", function(){
@@ -46,15 +48,34 @@ document.getElementById("clic").addEventListener("click", function() {
 if (score>=10){
   document.getElementById("bonus").disabled = false;
 
-  document.getElementById("bonus").addEventListener("click", function() {
-      score -= 10;
-    document.getElementById("bonus").disabled = true;
-    document.getElementById("affichage").innerHTML = score;
+}
 
+  document.getElementById("bonus").addEventListener("click", function() {
+
+        document.getElementById("bonus").disabled = true;
+        console.log(score - 10);
+        var timeleft = 30;
+
+var timer = setInterval(function(){
+  console.log(timeleft);
+  timeleft -= 1;
+
+  if(timeleft <= 0) {
+    clearInterval(timer);
+}}, 1000);
+
+document.getElementById("affichage").innerHTML = score;
 
   }
   )
+
+
+if (score - n >= 0) {
+  document.getElementById("multiplier").disabled = false;
 }
+
+
+
 
   document.getElementById("affichage").innerHTML = score;
 
@@ -65,20 +86,13 @@ if (score>=10){
 
   document.getElementById("multiplier").addEventListener("click", function(augmenterMultiplicateur) {
 
-    if (score - n < 0){
-     alert("Tu n'as pas assez de crédit!");
-   }
-   else {
+    document.getElementById("multiplier").disabled = true;
      score = score - n ;
      document.getElementById("affichage").innerHTML = score;
      multiplicateur ++;
      n = n * 2;
-     console.log(multiplicateur);
      document.getElementById("multiplier").innerHTML = "multiplier X" + multiplicateur + " Coût prochain achat: " + n;
      console.log(n);
-}
-
-
 
 
 
