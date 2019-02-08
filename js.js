@@ -27,7 +27,12 @@ $(document).ready( function(){
 	var multiplicateur = 1;
 	var prixAmine = 50 ; 
 	$("#autoclic").attr("disabled", "disabled");
+	$("#multiplier").attr("disabled", "disabled");
+	
 	$("#clic").click(function(){
+		if ( score >= 49 || score >= prixAmine) {
+		$("#multiplier").removeAttr("disabled");  }
+		
 		score += multiplicateur;
 		$("#affichage").text(score);
 		
@@ -43,8 +48,13 @@ $(document).ready( function(){
 				$("button").removeAttr("disabled");	
 			
 		}
-		
+	
 	});
+	/**/
+	/*if ( score >= 50 || score >= prixAmine) {
+		$("#multiplier").removeAttr("disabled");
+	}*/
+	
 	/* au clic de l'auto-cliker*/
 	
 $("#autoclic").one("click", function(){
@@ -55,9 +65,10 @@ $("#autoclic").one("click", function(){
 	
 });
 	
-	/**/
+	/* le multiplicateur */
 	$("#multiplier").click(function(){
-		
+			if ( score >= prixAmine) {
+		$(this).attr("disabled", "disabled");  }
 		//console.log(multiplicateur);
 		if ( score - prixAmine < 0 ){
 			$("#affichage").text("Tu ne peux pas car le score sera NEGATIF. :-) ");	 
