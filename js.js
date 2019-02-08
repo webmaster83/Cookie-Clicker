@@ -25,7 +25,7 @@ $(document).ready( function(){
 	//var cookie = false ;
 	var score = 0 ;
 	var multiplicateur = 1;
-	
+	$("#autoclic").attr("disabled", "disabled");
 	$("#clic").click(function(){
 		score += multiplicateur;
 		$("#affichage").text(score);
@@ -46,7 +46,7 @@ $(document).ready( function(){
 	});
 	/* au clic de l'auto-cliker*/
 	
-$("#autoclic").one('click', function(){
+$("#autoclic").one("click", function(){
 
 	$(this).attr("disabled", "disabled");
 	score = score - 35 ;
