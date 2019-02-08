@@ -1,8 +1,7 @@
-
 (function() {
 
-
 var score = 0;
+
 var multiplicateur = 1;
 var autoclick = setInterval(function(){
   if (score >= 10) {
@@ -11,20 +10,21 @@ var autoclick = setInterval(function(){
   }
 }, 1000);
 
+document.getElementById("autoclic").disabled = true;
 
-
+document.getElementById("autoclic").addEventListener("click", function(){
+  score -= 5;
+	document.getElementById("autoclic").disabled = true;
+  document.getElementById("affichage").innerHTML = score;
+})
 
 document.getElementById("clic").addEventListener("click", function() {
   score += multiplicateur ;
+  if (score>= 5){
+  document.getElementById("autoclic").disabled = false;
+  }
   document.getElementById("affichage").innerHTML = score;
-    /*if (score >=10){
-    var myVar = setInterval(myTimer, 1000);
 
-function myTimer() {
-score += multiplicateur ;
-
-}*/
-//})
 
   })
 
@@ -39,4 +39,11 @@ score += multiplicateur ;
       console.log(multiplicateur);
       document.getElementById("multiplier").innerHTML = "multiplier X" + multiplicateur + " Coût prochain achat: " + 10 * multiplicateur;
 }
+
+
+
+
+
 })
+
+})();
