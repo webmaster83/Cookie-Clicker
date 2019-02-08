@@ -1,6 +1,5 @@
 (function() {
 
-
 var score = 0;
 
 var multiplicateur = 1;
