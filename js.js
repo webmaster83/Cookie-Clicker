@@ -8,6 +8,8 @@ var conteurAutoclic = 0;
 
 var n = 10;
 
+var newMult = multiplicateur * 2;
+
 
 
 document.getElementById("autoclic").disabled = true;
@@ -51,35 +53,9 @@ if (score>=10){
 }
 
 
-  document.getElementById("bonus").addEventListener("click", function() {
-
-
-        score = score - 10;
-        var timeleft = 30;
-
-var timer = setInterval(function(){
-  console.log(timeleft);
-  timeleft -= 1;
-
-  if(timeleft <= 0) {
-    clearInterval(timer);
-}}, 1000);
-
-document.getElementById("affichage").innerHTML = score;
-document.getElementById("bonus").disabled = true;
-  }
-  );
-
-
-
-
-
-
 if (score - n >= 0) {
   document.getElementById("multiplier").disabled = false;
 }
-
-
 
 
   document.getElementById("affichage").innerHTML = score;
@@ -88,6 +64,45 @@ if (score - n >= 0) {
   });
 
 
+  
+  
+document.getElementById("bonus").addEventListener("click", function() {
+
+        score = score - 10;
+        var timeleft = 30;
+
+var timer = setInterval(function(){
+  console.log(timeleft);
+  timeleft -= 1;
+	
+  
+  
+  if (timeleft >= 0) {
+    multiplicateur= newMult;
+}
+	else {
+		clearInterval(timer);
+		multiplicateur = newMult/2;
+	}
+
+
+
+}, 1000);
+
+
+document.getElementById("affichage").innerHTML = score;
+
+document.getElementById("bonus").disabled = true;
+
+
+  }
+  );
+
+
+
+
+  
+  
 
   document.getElementById("multiplier").addEventListener("click", function(augmenterMultiplicateur) {
 
