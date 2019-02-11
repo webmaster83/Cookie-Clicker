@@ -83,6 +83,9 @@ console.log(autoClic);
   if (score >= 10) {
     score += multiplicateur ;
     document.getElementById("affichage").innerHTML = score;
+    checkBonus();
+    checkMult();
+
   }
 }, 1000);
 
@@ -99,23 +102,24 @@ document.getElementById("affichage").innerHTML = score;
 //BONUS
 document.getElementById("bonus").addEventListener("click", function() {
 
-        score = score - 10;
+  score = score - 10;
+  document.getElementById("bonus").disabled = true;
 
-        function doubleMult(){
-          if (timeleft === 0) {
-            clearInterval(timer);
-            document.getElementById('bonus').innerHTML= "BONUS";
-            multiplicateur = multiplicateur/2;
-          }
-          }
+      /*  function desactivateBon(){
+          if (timeleft>=0){
 
-
+      }
+*/
 var timer = setInterval(function(){
   document.getElementById('bonus').innerHTML= "BONUS - " + timeleft;
   timeleft -= 1;
-  doubleMult();
-
+  if (timeleft <= 0) {
+    clearInterval(timer);
+    document.getElementById('bonus').innerHTML= "BONUS";
+    multiplicateur = multiplicateur/2;
+  }
 }, 1000);
+
 
 multiplicateur = multiplicateur * 2;
 
@@ -126,7 +130,6 @@ checkMult();
 
 document.getElementById("affichage").innerHTML = score;
 
-document.getElementById("bonus").disabled = true;
 
 
   }
