@@ -5,6 +5,7 @@
 * [Caterina Mennito](https://github.com/caterinamennito)
 * [Meilyn Andrade](https://github.com/meilyn/)
 * [Amine Nachit](https://github.com/webmaster83)
+* [Reda](https://github.com/redamrabet)
 
 Where: **BeCode** [Junior Web Developper]
 
@@ -19,9 +20,9 @@ Status: **In progress**
 
 ## Projet
 
-Cookie Cliker Score **(Game)**
+Cookie Cliker Score **(Game)**  : http://orteil.dashnet.org/cookieclicker/
 
-**Instructions**: [Jhonson](https://github.com/becodeorg/BXL-Johnson-3.9/tree/master/Projets/coockie-clicker)
+**Instructions**: [Johnson](https://github.com/becodeorg/BXL-Johnson-3.9/tree/master/Projets/coockie-clicker)
 
 ## Objectives
 
@@ -42,7 +43,7 @@ Cookie Cliker Score **(Game)**
 * du CSS
 
 ## Official Website
-![Ofiicial](cookieclicker_.png)
+![Ofiicial](cookieclicker.png)
 
 
 
