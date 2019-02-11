@@ -4,7 +4,8 @@
     var multiplicateur = 1;
     var autoClic = 0;
     var prix = 10;
-    var newMult = multiplicateur * 2;
+    var timeleft = 10;
+    var newMult= multiplicateur * 2;
 
 
 
@@ -31,6 +32,16 @@ function checkBonus (){
   }
 }
 
+/*function doubleMult(){
+  if (timeleft >= 0) {
+    score += newMult;
+  }
+    else {
+  		clearInterval(timer);
+  		//multiplicateur = multiplicateur/2;
+  	}
+}
+*/
 //COOKIE
   document.getElementById("clic").addEventListener("click", function() {
       score += multiplicateur ;
@@ -51,7 +62,9 @@ document.getElementById("multiplier").addEventListener("click", function(augment
    prix = prix * 2;
    document.getElementById("multiplier").innerHTML = "multiplier X" + multiplicateur + " Coût prochain achat: " + prix;
    console.log(prix);
-
+   checkBonus();
+   checkAuto();
+   checkMult();
 
 });
 
@@ -73,6 +86,9 @@ console.log(autoClic);
   }
 }, 1000);
 
+checkBonus();
+checkAuto();
+checkMult();
 
 document.getElementById("autoclic").disabled = true;
 document.getElementById("affichage").innerHTML = score;
@@ -84,25 +100,29 @@ document.getElementById("affichage").innerHTML = score;
 document.getElementById("bonus").addEventListener("click", function() {
 
         score = score - 10;
-        var timeleft = 30;
+
+        function doubleMult(){
+          if (timeleft === 0) {
+            clearInterval(timer);
+            document.getElementById('bonus').innerHTML= "BONUS";
+            multiplicateur = multiplicateur/2;
+          }
+          }
+
 
 var timer = setInterval(function(){
-  console.log(timeleft);
+  document.getElementById('bonus').innerHTML= "BONUS - " + timeleft;
   timeleft -= 1;
-
-
-  if (timeleft >= 0) {
-    multiplicateur= multiplicateur * 2;
-}
-	else {
-		clearInterval(timer);
-		multiplicateur = multiplicateur/2;
-	}
-
-
+  doubleMult();
 
 }, 1000);
 
+multiplicateur = multiplicateur * 2;
+
+
+checkBonus();
+checkAuto();
+checkMult();
 
 document.getElementById("affichage").innerHTML = score;
 
