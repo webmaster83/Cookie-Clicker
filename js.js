@@ -38,7 +38,7 @@ function checkAuto (){
 
 //Vérifie si on a les conditions nécessaires pour activer le bouton BONUS
 function checkBonus (){
-  if (score >= 5000 && timeleft>=30){
+  if (score >= 20 && timeleft>=30){
     document.getElementById("bonus").disabled = false;
 }else{
   document.getElementById("bonus").disabled = true;
@@ -105,7 +105,7 @@ document.getElementById("affichage").innerHTML = parseInt(score);
 document.getElementById("bonus").addEventListener("click", function() {
 
   document.getElementById("bonus").disabled = true;
-  score = score - 5000;
+  score = score - 20;
 
   var timer = setInterval(function(){
     document.getElementById('bonus').innerHTML= "BONUS - " + timeleft;
