@@ -1,9 +1,19 @@
 
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'Pixel';
+    src: url("font/slkscr-webfont.woff");
+}
+
+
 /* CSS Document */
 
 
 html{
 	height: 100%;
+	font-family: 'Pixel';
 }
 h1{
 	margin: 0;
@@ -36,7 +46,7 @@ body {
 
 
 	background-image: radial-gradient(circle, #ed741f, #cf6921, #b25e23, #965324, #7b4824);
-	width: 35%;
+	width: 40%;
 	height: 100%;
 	margin: auto;
 	padding-top: 10px;
@@ -51,6 +61,7 @@ body {
 	padding: 10px;
 	font-size: 20px;
 	border-radius: 10px;
+	font-family: 'Pixel';
 }
 
 #autoclic:disabled, #multiplier:disabled, #bonus:disabled {
@@ -60,6 +71,7 @@ body {
 	padding: 10px;
 	font-size: 20px;
 	border-radius: 10px;
+	font-family: 'Pixel';
 }
 #autoclic {
 	margin-top: 30px;
@@ -68,13 +80,18 @@ body {
 	padding: 10px;
 	font-size: 20px;
 	border-radius: 10px;
+	font-family: 'Pixel';
 }
 
 #affichage {
 	color: #039be5;
 	font-size: 30px;
 }
-img {
+
+img.grow {
+
+	cursor: url(img/rouleau2.png),auto;
+	transition: 0.5s;
 	margin-top: 30px;
 	display: flex;
 	flex: center;
