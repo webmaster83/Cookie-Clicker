@@ -2,31 +2,46 @@
 /* CSS Document */
 
 
+
+
+
 html{
 	height: 100%;
 }
 H1{
 	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 25px;
 }
+
+
 body {
 	text-align: center;
 	margin: auto auto;
 	display: block;
 	width: 100%;
-	height: 100%;
-	padding: 0px;
+	height: 100%;;
 	overflow-x: hidden;
-	background-repeat:
+	background-image: url(img/original2.gif);
+	background-size: 35%;
+	background-position: center center;
+}
 
 
+.grow:hover {
+	-webkit-tranform: scale(1.3);
+	-ms-transform: scale(1,3);
+	transform: scale(1.3);
 }
 
 #cookie {
 
-	background-color: SaddleBrown;
-	width: 50%;
+	background-image: radial-gradient(circle, #ed741f, #cf6921, #b25e23, #965324, #7b4824);
+	width: 35%;
 	height: 100%;
 	margin: auto;
+	padding-top: 10px;
+
 
 }
 
@@ -66,4 +81,6 @@ img {
 	flex: center;
 	margin: auto auto;
 	background-color: none !important;
+	padding-top: 35px;
+	padding-bottom: 35px;
 }
