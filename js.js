@@ -23,7 +23,6 @@ function checkMult (){
   }
   else{
     document.getElementById("multiplier").disabled = true;
-      document.getElementById("multiplier").onmouseover.style.backgroundColor ="red";
 
   }
 };
@@ -166,7 +165,17 @@ document.getElementById("affichage").innerHTML = parseInt(score);
   }
   );
 
+document.getElementById("multiplier").onmouseover = function() {mouseOver()};
+document.getElementById("multiplier").onmouseout = function() {mouseOut()};
 
+function mouseOver() {
+  document.getElementById("multiplier").style.backgroundColor = "red" ;
+	 document.getElementById("multiplier").innerHTML ="Coût " + prix;
+}
+
+function mouseOut() {
+  document.getElementById("multiplier").style.color = "black";
+}
 
 
     })();
