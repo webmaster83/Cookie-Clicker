@@ -20,9 +20,12 @@
 function checkMult (){
   if (score - prix>= 0) {
     document.getElementById("multiplier").disabled = false;
+    document.getElementById("multiplier").style.backgroundColor = "#039be5";
   }
   else{
     document.getElementById("multiplier").disabled = true;
+    document.getElementById("multiplier").onmouseover = function() {mouseOverMult()};
+    document.getElementById("multiplier").onmouseout = function() {mouseOutMult()};
 
   }
 };
@@ -31,6 +34,8 @@ function checkMult (){
 function checkAuto (){
   if (score >= 500 && autoClic===0){
     document.getElementById("autoclic").disabled = false;
+    document.getElementById("autoclic").style.backgroundColor = "#039be5";
+
   }
   else{
     document.getElementById("autoclic").disabled = true;
@@ -41,37 +46,13 @@ function checkAuto (){
 function checkBonus (){
   if (score >= 5000 && timeleft>=30){
     document.getElementById("bonus").disabled = false;
+    document.getElementById("bonus").style.backgroundColor = "#039be5";
+
 }else{
   document.getElementById("bonus").disabled = true;
 }
 }
 
-function  onmouseover() {
-
-  document.getElementById("multiplier").style.backgroundColor = "red";}
-/*
-function mouseOver () {
-
-  document.getElementById("multiplier").style.backgroundColor = "red";
-  document.getElementById("multiplier").innerHTML = "Coût " + prix;
-}
-}
-
-document.getElementById("multiplier").onmouseover =function() {mouseOver()};
-
-
-
-
-
-function mouseOut() {
-  document.getElementById("multiplier").style.backgroundColor = "grey";
-  document.getElementById("multiplier").innerHTML = "multiplier";
-}
-
-document.getElementById("multiplier").onmouseout = function() {mouseOut()};
-
-
-*/
 
 //COOKIE
   document.getElementById("clic").addEventListener("click", function() {
@@ -95,7 +76,7 @@ document.getElementById("multiplier").addEventListener("click", function(augment
    checkBonus();
    checkAuto();
    document.getElementById("multiplier").style.lineHeight = "2.2";
-   document.getElementById("multiplier").setAttribute("title", " Coût prochain achat: " + prix);
+   //document.getElementById("multiplier").setAttribute("title", " Coût prochain achat: " + prix);
 
 });
 
@@ -165,16 +146,58 @@ document.getElementById("affichage").innerHTML = parseInt(score);
   }
   );
 
-document.getElementById("multiplier").onmouseover = function() {mouseOver()};
-document.getElementById("multiplier").onmouseout = function() {mouseOut()};
 
-function mouseOver() {
+
+// Pour MULTIPLIER : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
+
+function mouseOverMult() {
   document.getElementById("multiplier").style.backgroundColor = "red" ;
 	 document.getElementById("multiplier").innerHTML ="Coût " + prix;
 }
 
-function mouseOut() {
-  document.getElementById("multiplier").style.color = "black";
+function mouseOutMult() {
+  document.getElementById("multiplier").style.backgroundColor = "grey";
+  document.getElementById("multiplier").innerHTML ="multiplier X " + multiplicateur;
+
+}
+
+
+// Pour AUTOCLIC : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
+document.getElementById("autoclic").onmouseover = function() {mouseOverAuto()};
+document.getElementById("autoclic").onmouseout = function() {mouseOutAuto()};
+
+function mouseOverAuto() {
+if (autoClic>0){
+  document.getElementById("autoclic").style.backgroundColor = "red" ;
+  document.getElementById("autoclic").innerHTML ="Tu as déjà l'autoclic!";
+ }
+ else{
+   document.getElementById("autoclic").innerHTML ="Coût 500";
+   document.getElementById("autoclic").style.backgroundColor = "red" ;
+
+ }
+}
+
+function mouseOutAuto() {
+  document.getElementById("autoclic").style.backgroundColor = "grey";
+  document.getElementById("autoclic").innerHTML ="Achete autoclic";
+
+}
+
+
+// Pour BONUS : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
+document.getElementById("bonus").onmouseover = function() {mouseOverBonus()};
+document.getElementById("bonus").onmouseout = function() {mouseOutBonus()};
+
+function mouseOverBonus() {
+  document.getElementById("bonus").style.backgroundColor = "red" ;
+   document.getElementById("bonus").innerHTML ="Coût: 5000";
+ }
+
+function mouseOutBonus() {
+  document.getElementById("bonus").style.backgroundColor = "grey";
+  document.getElementById("bonus").innerHTML ="BONUS";
+
 }
 
 
