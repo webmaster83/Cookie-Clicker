@@ -26,8 +26,8 @@ body {
 	text-align: center;
 	margin: auto auto;
 	display: block;
-	width: 100%;
-	height: 100%;;
+	width: 100vw;
+	height: 100vh;;
 	overflow-x: hidden;
 	background-image: url(img/original2.gif);
 	background-repeat: repeat;
@@ -51,8 +51,8 @@ body {
 
 #cookie {
 	background-image: radial-gradient(circle, #ed741f, #cf6921, #b25e23, #965324, #7b4824);
-	width: 50%;
-	height: 100%;
+	width: 50vw;
+	height: 100vh;
 	background-size: auto;
 	margin: auto auto;
 	padding-top: 5%;
@@ -111,4 +111,3 @@ img.grow {
   	margin-top: 10%;
   	filter: drop-shadow(0 0 2rem white);
 }
-
