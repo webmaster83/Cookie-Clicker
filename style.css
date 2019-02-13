@@ -44,6 +44,12 @@ overflow: hidden;
 }
 
 
+.grow:active {
+
+  transform: translateY(4px);
+}
+
+
 #cookie {
 
 
@@ -56,7 +62,9 @@ overflow: hidden;
 
 }
 
-#multiplier , #bonus {
+
+
+#autoclic, #multiplier, #bonus  {
 	margin-top: 30px;
 	background-color: #039be5;
 	color: white;
@@ -64,22 +72,14 @@ overflow: hidden;
 	font-size: 20px;
 	border-radius: 10px;
 	font-family: 'Pixel';
+  line-height: 2.2;
 }
 
 #autoclic:disabled, #multiplier:disabled, #bonus:disabled {
 	margin-top: 30px;
 	background-color: grey;
 	color: white;
-	padding: 10px;
-	font-size: 20px;
-	border-radius: 10px;
-	font-family: 'Pixel';
-}
-#autoclic {
-	margin-top: 30px;
-	background-color: #039be5;
-	color: white;
-	padding: 10px;
+	padding: 20px, 0;
 	font-size: 20px;
 	border-radius: 10px;
 	font-family: 'Pixel';
@@ -100,8 +100,9 @@ img.grow {
 	margin: auto auto;
 	background-color: none !important;
 
-	padding-top: 10%;
-	padding-bottom: 10%;
-
+	/*padding-top: 10%;
+	padding-bottom: 25%;*/
+margin-bottom: 10%;
+margin-top: 10%;
 
 }
