@@ -23,6 +23,8 @@ function checkMult (){
   }
   else{
     document.getElementById("multiplier").disabled = true;
+      document.getElementById("multiplier").onmouseover.style.backgroundColor ="red";
+
   }
 };
 
@@ -45,7 +47,32 @@ function checkBonus (){
 }
 }
 
+function  onmouseover() {
 
+  document.getElementById("multiplier").style.backgroundColor = "red";}
+/*
+function mouseOver () {
+
+  document.getElementById("multiplier").style.backgroundColor = "red";
+  document.getElementById("multiplier").innerHTML = "Coût " + prix;
+}
+}
+
+document.getElementById("multiplier").onmouseover =function() {mouseOver()};
+
+
+
+
+
+function mouseOut() {
+  document.getElementById("multiplier").style.backgroundColor = "grey";
+  document.getElementById("multiplier").innerHTML = "multiplier";
+}
+
+document.getElementById("multiplier").onmouseout = function() {mouseOut()};
+
+
+*/
 
 //COOKIE
   document.getElementById("clic").addEventListener("click", function() {
