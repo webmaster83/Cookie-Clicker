@@ -65,7 +65,7 @@ document.getElementById("multiplier").addEventListener("click", function(augment
    document.getElementById("affichage").innerHTML = parseInt(score);
    multiplicateur ++;
    prix = prix * 2;
-   document.getElementById("multiplier").innerHTML = "multiplier X" + multiplicateur + " Coût prochain achat: " + prix;
+   document.getElementById("multiplier").innerHTML = "multiplier X" + multiplicateur + "<br>" + " Coût prochain achat: " + prix;
    checkBonus();
    checkAuto();
 

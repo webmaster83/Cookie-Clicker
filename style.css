@@ -27,11 +27,11 @@ body {
 	margin: auto auto;
 	display: block;
 	width: 100%;
-
+overflow: hidden;
 	height: 100%;;
 	overflow-x: hidden;
 	background-image: url(img/original2.gif);
-	background-size: 35%;
+	background-size: 40%;
 	background-position: center center;
 }
 
