@@ -15,17 +15,38 @@
 
     };
 
+    function playSound() {
+
+      var sound = document.getElementById("click");
+      sound.play();
+    }
+
+    function playSound2() {
+        var sound = document.getElementById("bonuss");
+        sound.play();
+    }
+
+    function playSound3() {
+      var sound = document.getElementById("denied");
+      sound.play();
+    }
+
+
 
 //Vérifie si on a les conditions nécessaires pour activer le bouton MULTIPLIER
 function checkMult (){
   if (score - prix>= 0) {
+
     document.getElementById("multiplier").disabled = false;
-    document.getElementById("multiplier").style.backgroundColor = "#039be5";
+    document.getElementById("multiplier").style.backgroundColor = "green";
+
   }
   else{
+
     document.getElementById("multiplier").disabled = true;
     document.getElementById("multiplier").onmouseover = function() {mouseOverMult()};
     document.getElementById("multiplier").onmouseout = function() {mouseOutMult()};
+
 
   }
 };
@@ -39,6 +60,7 @@ function checkAuto (){
   }
   else{
     document.getElementById("autoclic").disabled = true;
+
   }
 }
 
@@ -54,6 +76,8 @@ function checkBonus (){
 }
 
 
+
+
 //COOKIE
   document.getElementById("clic").addEventListener("click", function() {
       score += multiplicateur ;
@@ -66,7 +90,7 @@ function checkBonus (){
 
 //MULTIPLIER
 document.getElementById("multiplier").addEventListener("click", function(augmenterMultiplicateur) {
-
+playSound();
   document.getElementById("multiplier").disabled = true;
    score = score - prix ;
    document.getElementById("affichage").innerHTML = parseInt(score);
@@ -87,6 +111,7 @@ document.getElementById("multiplier").addEventListener("click", function(augment
 //AUTOCLIC
 document.getElementById("autoclic").addEventListener("click", function(){
 
+playSound();
 autoClic ++;
 score -= 500;
 console.log(autoClic);
@@ -113,6 +138,7 @@ document.getElementById("affichage").innerHTML = parseInt(score);
 //BONUS
 document.getElementById("bonus").addEventListener("click", function() {
 
+playSound();
   document.getElementById("bonus").disabled = true;
   score = score - 5000;
 
@@ -120,6 +146,7 @@ document.getElementById("bonus").addEventListener("click", function() {
     document.getElementById('bonus').innerHTML= "BONUS - " + timeleft;
     timeleft -= 1;
     checkBonus();
+    playSound2();
 
 //vérifie si les 30 secondes se sont écoulées
 //et fait en sorte que tout revienne à la "normalité"
@@ -130,6 +157,7 @@ document.getElementById("bonus").addEventListener("click", function() {
     timeleft = 30;
     checkBonus();
     checkMult();
+
   }
 }, 1000);
 
@@ -151,14 +179,18 @@ document.getElementById("affichage").innerHTML = parseInt(score);
 // Pour MULTIPLIER : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
 
 function mouseOverMult() {
+
   document.getElementById("multiplier").style.backgroundColor = "red" ;
-	 document.getElementById("multiplier").innerHTML ="Coût " + prix;
+	document.getElementById("multiplier").innerHTML ="Coût " + prix;
+  playSound3();
+
+
+
 }
 
 function mouseOutMult() {
   document.getElementById("multiplier").style.backgroundColor = "grey";
   document.getElementById("multiplier").innerHTML ="multiplier X " + multiplicateur;
-
 }
 
 
@@ -168,12 +200,14 @@ document.getElementById("autoclic").onmouseout = function() {mouseOutAuto()};
 
 function mouseOverAuto() {
 if (autoClic>0){
+
   document.getElementById("autoclic").style.backgroundColor = "red" ;
   document.getElementById("autoclic").innerHTML ="Tu as déjà l'autoclic!";
  }
  else{
    document.getElementById("autoclic").innerHTML ="Coût 500";
    document.getElementById("autoclic").style.backgroundColor = "red" ;
+   playSound3();
 
  }
 }
@@ -192,6 +226,9 @@ document.getElementById("bonus").onmouseout = function() {mouseOutBonus()};
 function mouseOverBonus() {
   document.getElementById("bonus").style.backgroundColor = "red" ;
    document.getElementById("bonus").innerHTML ="Coût: 5000";
+   playSound3();
+
+
  }
 
 function mouseOutBonus() {
@@ -200,5 +237,4 @@ function mouseOutBonus() {
 
 }
 
-
-    })();
+})();
