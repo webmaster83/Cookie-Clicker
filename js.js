@@ -114,6 +114,7 @@ document.getElementById("autoclic").addEventListener("click", function(){
 playSound();
 autoClic ++;
 score -= 500;
+	$( "#autoclic" ).toggle( "explode" );
 console.log(autoClic);
 
  setInterval(function(){
@@ -180,12 +181,13 @@ document.getElementById("affichage").innerHTML = parseInt(score);
 
 function mouseOverMult() {
 
-  document.getElementById("multiplier").style.backgroundColor = "red" ;
-	document.getElementById("multiplier").innerHTML ="Coût " + prix;
-  playSound3();
-
-
-
+  if (score - prix < 0) {
+    document.getElementById("multiplier").style.backgroundColor = "red" ;
+  }
+  else {
+    document.getElementById("multiplier").style.backgroundColor = "green" ;
+  }
+	 document.getElementById("multiplier").innerHTML ="Coût " + prix;
 }
 
 function mouseOutMult() {
@@ -199,17 +201,16 @@ document.getElementById("autoclic").onmouseover = function() {mouseOverAuto()};
 document.getElementById("autoclic").onmouseout = function() {mouseOutAuto()};
 
 function mouseOverAuto() {
-if (autoClic>0){
 
-  document.getElementById("autoclic").style.backgroundColor = "red" ;
-  document.getElementById("autoclic").innerHTML ="Tu as déjà l'autoclic!";
- }
- else{
+  if (score >= 500 && autoClic===0) {
    document.getElementById("autoclic").innerHTML ="Coût 500";
-   document.getElementById("autoclic").style.backgroundColor = "red" ;
-   playSound3();
+   document.getElementById("autoclic").style.backgroundColor = "green";
+}
+else {
+  document.getElementById("autoclic").style.backgroundColor = "red" ;
+  document.getElementById("autoclic").innerHTML ="Coût 500";
+}
 
- }
 }
 
 function mouseOutAuto() {

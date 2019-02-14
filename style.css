@@ -96,6 +96,15 @@ body {
 }
 
 
+#autoclic:disabled:hover, #multiplier:disabled:hover, #bonus:disabled:hover {
+  background-color: red;
+}
+
+#autoclic:hover, #multiplier:hover, #bonus:hover {
+  background-color: green;
+}
+
+/*
 .tooltip {
   position: relative;
   display: inline-block;
@@ -117,6 +126,8 @@ body {
 .tooltip:hover .tooltiptext{
   visibility: visible;
 }
+
+*/
 
 
 
