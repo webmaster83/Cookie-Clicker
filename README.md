@@ -5,7 +5,7 @@
 * [Caterina Mennito](https://github.com/caterinamennito)
 * [Meilyn Andrade](https://github.com/meilyn/)
 * [Amine Nachit](https://github.com/webmaster83)
-* [Reda](https://github.com/redamrabet)
+* [Reda M'rabet](https://github.com/redamrabet)
 
 Where: **BeCode** [Junior Web Developper]
 
