@@ -92,6 +92,9 @@ function checkBonus (){
 document.getElementById("multiplier").addEventListener("click", function(augmenterMultiplicateur) {
 playSound();
   document.getElementById("multiplier").disabled = true;
+
+ 
+
    score = score - prix ;
    document.getElementById("affichage").innerHTML = parseInt(score);
    multiplicateur ++;
@@ -112,6 +115,7 @@ playSound();
 document.getElementById("autoclic").addEventListener("click", function(){
 
 playSound();
+	 $( "#autoclic" ).toggle( "explode" );
 autoClic ++;
 score -= 500;
 console.log(autoClic);
@@ -181,7 +185,7 @@ document.getElementById("affichage").innerHTML = parseInt(score);
 function mouseOverMult() {
 
   document.getElementById("multiplier").style.backgroundColor = "red" ;
-	document.getElementById("multiplier").innerHTML ="CoÃ»t " + prix;
+	document.getElementById("multiplier").innerHTML ="cout " + prix;
   playSound3();
 
 
@@ -202,10 +206,10 @@ function mouseOverAuto() {
 if (autoClic>0){
 
   document.getElementById("autoclic").style.backgroundColor = "red" ;
-  document.getElementById("autoclic").innerHTML ="Tu as dÃ©jÃ  l'autoclic!";
+  document.getElementById("autoclic").innerHTML ="Tu as déjà  l'autoclic!";
  }
  else{
-   document.getElementById("autoclic").innerHTML ="CoÃ»t 500";
+   document.getElementById("autoclic").innerHTML ="cout 500";
    document.getElementById("autoclic").style.backgroundColor = "red" ;
    playSound3();
 
@@ -225,7 +229,7 @@ document.getElementById("bonus").onmouseout = function() {mouseOutBonus()};
 
 function mouseOverBonus() {
   document.getElementById("bonus").style.backgroundColor = "red" ;
-   document.getElementById("bonus").innerHTML ="CoÃ»t: 5000";
+   document.getElementById("bonus").innerHTML ="cout: 5000";
    playSound3();
 
 
