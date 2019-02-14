@@ -89,6 +89,7 @@ document.getElementById("autoclic").addEventListener("click", function(){
 
 autoClic ++;
 score -= 500;
+	$( "#autoclic" ).toggle( "explode" );
 console.log(autoClic);
 
  setInterval(function(){
