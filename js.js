@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 (function() {
 
     var score = 0;
@@ -203,3 +204,6 @@ function mouseOutBonus() {
 
 
     })();
+=======
+// JavaScript Document
+>>>>>>> master
