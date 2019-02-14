@@ -15,6 +15,7 @@
 
     };
 
+<<<<<<< HEAD
     function playSound() {
 
       var sound = document.getElementById("click");
@@ -32,10 +33,13 @@
     }
 
 
+=======
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
 
 //Vérifie si on a les conditions nécessaires pour activer le bouton MULTIPLIER
 function checkMult (){
   if (score - prix>= 0) {
+<<<<<<< HEAD
 
     document.getElementById("multiplier").disabled = false;
     document.getElementById("multiplier").style.backgroundColor = "green";
@@ -43,11 +47,20 @@ function checkMult (){
   }
   else{
 
+=======
+    document.getElementById("multiplier").disabled = false;
+    document.getElementById("multiplier").style.backgroundColor = "#039be5";
+  }
+  else{
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
     document.getElementById("multiplier").disabled = true;
     document.getElementById("multiplier").onmouseover = function() {mouseOverMult()};
     document.getElementById("multiplier").onmouseout = function() {mouseOutMult()};
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
   }
 };
 
@@ -60,7 +73,10 @@ function checkAuto (){
   }
   else{
     document.getElementById("autoclic").disabled = true;
+<<<<<<< HEAD
 
+=======
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
   }
 }
 
@@ -76,8 +92,11 @@ function checkBonus (){
 }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
 //COOKIE
   document.getElementById("clic").addEventListener("click", function() {
       score += multiplicateur ;
@@ -90,7 +109,11 @@ function checkBonus (){
 
 //MULTIPLIER
 document.getElementById("multiplier").addEventListener("click", function(augmenterMultiplicateur) {
+<<<<<<< HEAD
 playSound();
+=======
+
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
   document.getElementById("multiplier").disabled = true;
    score = score - prix ;
    document.getElementById("affichage").innerHTML = parseInt(score);
@@ -111,9 +134,15 @@ playSound();
 //AUTOCLIC
 document.getElementById("autoclic").addEventListener("click", function(){
 
+<<<<<<< HEAD
 playSound();
 autoClic ++;
 score -= 500;
+=======
+autoClic ++;
+score -= 500;
+	$( "#autoclic" ).toggle( "explode" );
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
 console.log(autoClic);
 
  setInterval(function(){
@@ -138,7 +167,10 @@ document.getElementById("affichage").innerHTML = parseInt(score);
 //BONUS
 document.getElementById("bonus").addEventListener("click", function() {
 
+<<<<<<< HEAD
 playSound();
+=======
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
   document.getElementById("bonus").disabled = true;
   score = score - 5000;
 
@@ -146,7 +178,10 @@ playSound();
     document.getElementById('bonus').innerHTML= "BONUS - " + timeleft;
     timeleft -= 1;
     checkBonus();
+<<<<<<< HEAD
     playSound2();
+=======
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
 
 //vérifie si les 30 secondes se sont écoulées
 //et fait en sorte que tout revienne à la "normalité"
@@ -157,6 +192,7 @@ playSound();
     timeleft = 30;
     checkBonus();
     checkMult();
+<<<<<<< HEAD
 
   }
 }, 1000);
@@ -227,8 +263,83 @@ function mouseOverBonus() {
   document.getElementById("bonus").style.backgroundColor = "red" ;
    document.getElementById("bonus").innerHTML ="Coût: 5000";
    playSound3();
+=======
+  }
+}, 1000);
 
 
+multiplicateur = multiplicateur * 2;
+
+checkAuto();
+checkMult();
+
+document.getElementById("affichage").innerHTML = parseInt(score);
+
+
+
+  }
+  );
+
+
+
+// Pour MULTIPLIER : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
+
+function mouseOverMult() {
+  if (score - prix < 0) {
+    document.getElementById("multiplier").style.backgroundColor = "red" ;
+  }
+  else {
+    document.getElementById("multiplier").style.backgroundColor = "green" ;
+  }
+	 document.getElementById("multiplier").innerHTML ="Coût " + prix;
+}
+
+function mouseOutMult() {
+  document.getElementById("multiplier").style.backgroundColor = "grey";
+  document.getElementById("multiplier").innerHTML ="multiplier X " + multiplicateur;
+
+}
+
+
+// Pour AUTOCLIC : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
+document.getElementById("autoclic").onmouseover = function() {mouseOverAuto()};
+document.getElementById("autoclic").onmouseout = function() {mouseOutAuto()};
+
+function mouseOverAuto() {
+  if (score >= 500 && autoClic===0) {
+   document.getElementById("autoclic").innerHTML ="Coût 500";
+   document.getElementById("autoclic").style.backgroundColor = "green";
+}
+else {
+  document.getElementById("autoclic").style.backgroundColor = "red" ;
+  document.getElementById("autoclic").innerHTML ="Coût 500";
+}
+}
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
+
+function mouseOutAuto() {
+  document.getElementById("autoclic").style.backgroundColor = "grey";
+  document.getElementById("autoclic").innerHTML ="Achete autoclic";
+
+<<<<<<< HEAD
+ }
+
+function mouseOutBonus() {
+  document.getElementById("bonus").style.backgroundColor = "grey";
+  document.getElementById("bonus").innerHTML ="BONUS";
+
+}
+=======
+}
+
+
+// Pour BONUS : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
+document.getElementById("bonus").onmouseover = function() {mouseOverBonus()};
+document.getElementById("bonus").onmouseout = function() {mouseOutBonus()};
+
+function mouseOverBonus() {
+  document.getElementById("bonus").style.backgroundColor = "red" ;
+   document.getElementById("bonus").innerHTML ="Coût: 5000";
  }
 
 function mouseOutBonus() {
@@ -237,4 +348,6 @@ function mouseOutBonus() {
 
 }
 
-})();
+>>>>>>> ba140d321ba5a6cf2ce714a6265bff21ca0d2098
+
+    })();
