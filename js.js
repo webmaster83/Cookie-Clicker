@@ -152,7 +152,12 @@ document.getElementById("affichage").innerHTML = parseInt(score);
 // Pour MULTIPLIER : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
 
 function mouseOverMult() {
-  document.getElementById("multiplier").style.backgroundColor = "red" ;
+  if (score - prix < 0) {
+    document.getElementById("multiplier").style.backgroundColor = "red" ;
+  }
+  else {
+    document.getElementById("multiplier").style.backgroundColor = "green" ;
+  }
 	 document.getElementById("multiplier").innerHTML ="Coût " + prix;
 }
 
@@ -168,15 +173,14 @@ document.getElementById("autoclic").onmouseover = function() {mouseOverAuto()};
 document.getElementById("autoclic").onmouseout = function() {mouseOutAuto()};
 
 function mouseOverAuto() {
-if (autoClic>0){
-  document.getElementById("autoclic").style.backgroundColor = "red" ;
-  document.getElementById("autoclic").innerHTML ="Tu as déjà l'autoclic!";
- }
- else{
+  if (score >= 500 && autoClic===0) {
    document.getElementById("autoclic").innerHTML ="Coût 500";
-   document.getElementById("autoclic").style.backgroundColor = "red" ;
-
- }
+   document.getElementById("autoclic").style.backgroundColor = "green";
+}
+else {
+  document.getElementById("autoclic").style.backgroundColor = "red" ;
+  document.getElementById("autoclic").innerHTML ="Coût 500";
+}
 }
 
 function mouseOutAuto() {
