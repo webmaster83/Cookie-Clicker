@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 (function() {
 
     var score = 0;
@@ -8,7 +7,7 @@
     var timeleft = 30;
 
 
-//Au chargement de la page, on vérifie si les conditions pour activer les boutons sont remplies
+//Au chargement de la page, on vÃ©rifie si les conditions pour activer les boutons sont remplies
     window.onload = function() {
       checkMult();
       checkAuto();
@@ -16,22 +15,43 @@
 
     };
 
+    function playSound() {
 
-//Vérifie si on a les conditions nécessaires pour activer le bouton MULTIPLIER
+      var sound = document.getElementById("click");
+      sound.play();
+    }
+
+    function playSound2() {
+        var sound = document.getElementById("bonuss");
+        sound.play();
+    }
+
+    function playSound3() {
+      var sound = document.getElementById("denied");
+      sound.play();
+    }
+
+
+
+//VÃ©rifie si on a les conditions nÃ©cessaires pour activer le bouton MULTIPLIER
 function checkMult (){
   if (score - prix>= 0) {
+
     document.getElementById("multiplier").disabled = false;
-    document.getElementById("multiplier").style.backgroundColor = "#039be5";
+    document.getElementById("multiplier").style.backgroundColor = "green";
+
   }
   else{
+
     document.getElementById("multiplier").disabled = true;
     document.getElementById("multiplier").onmouseover = function() {mouseOverMult()};
     document.getElementById("multiplier").onmouseout = function() {mouseOutMult()};
 
+
   }
 };
 
-//Vérifie si on a les conditions nécessaires pour activer le bouton AUTOCLIC
+//VÃ©rifie si on a les conditions nÃ©cessaires pour activer le bouton AUTOCLIC
 function checkAuto (){
   if (score >= 500 && autoClic===0){
     document.getElementById("autoclic").disabled = false;
@@ -40,10 +60,11 @@ function checkAuto (){
   }
   else{
     document.getElementById("autoclic").disabled = true;
+
   }
 }
 
-//Vérifie si on a les conditions nécessaires pour activer le bouton BONUS
+//VÃ©rifie si on a les conditions nÃ©cessaires pour activer le bouton BONUS
 function checkBonus (){
   if (score >= 5000 && timeleft>=30){
     document.getElementById("bonus").disabled = false;
@@ -53,6 +74,8 @@ function checkBonus (){
   document.getElementById("bonus").disabled = true;
 }
 }
+
+
 
 
 //COOKIE
@@ -67,8 +90,11 @@ function checkBonus (){
 
 //MULTIPLIER
 document.getElementById("multiplier").addEventListener("click", function(augmenterMultiplicateur) {
-
+playSound();
   document.getElementById("multiplier").disabled = true;
+
+ 
+
    score = score - prix ;
    document.getElementById("affichage").innerHTML = parseInt(score);
    multiplicateur ++;
@@ -77,7 +103,7 @@ document.getElementById("multiplier").addEventListener("click", function(augment
    checkBonus();
    checkAuto();
    document.getElementById("multiplier").style.lineHeight = "2.2";
-   //document.getElementById("multiplier").setAttribute("title", " Coût prochain achat: " + prix);
+   //document.getElementById("multiplier").setAttribute("title", " CoÃ»t prochain achat: " + prix);
 
 });
 
@@ -88,9 +114,10 @@ document.getElementById("multiplier").addEventListener("click", function(augment
 //AUTOCLIC
 document.getElementById("autoclic").addEventListener("click", function(){
 
+playSound();
+	 $( "#autoclic" ).toggle( "explode" );
 autoClic ++;
 score -= 500;
-	$( "#autoclic" ).toggle( "explode" );
 console.log(autoClic);
 
  setInterval(function(){
@@ -115,6 +142,7 @@ document.getElementById("affichage").innerHTML = parseInt(score);
 //BONUS
 document.getElementById("bonus").addEventListener("click", function() {
 
+playSound();
   document.getElementById("bonus").disabled = true;
   score = score - 5000;
 
@@ -122,9 +150,10 @@ document.getElementById("bonus").addEventListener("click", function() {
     document.getElementById('bonus').innerHTML= "BONUS - " + timeleft;
     timeleft -= 1;
     checkBonus();
+    playSound2();
 
-//vérifie si les 30 secondes se sont écoulées
-//et fait en sorte que tout revienne à la "normalité"
+//vÃ©rifie si les 30 secondes se sont Ã©coulÃ©es
+//et fait en sorte que tout revienne Ã  la "normalitÃ©"
   if (timeleft == 0) {
     clearInterval(timer);
     document.getElementById('bonus').innerHTML= "BONUS";
@@ -132,6 +161,7 @@ document.getElementById("bonus").addEventListener("click", function() {
     timeleft = 30;
     checkBonus();
     checkMult();
+
   }
 }, 1000);
 
@@ -150,32 +180,38 @@ document.getElementById("affichage").innerHTML = parseInt(score);
 
 
 
-// Pour MULTIPLIER : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
+// Pour MULTIPLIER : Si le bouton n'est pas activÃ©, onMouseOver il devient rouge et affiche le prix
 
 function mouseOverMult() {
+
   document.getElementById("multiplier").style.backgroundColor = "red" ;
-	 document.getElementById("multiplier").innerHTML ="Coût " + prix;
+	document.getElementById("multiplier").innerHTML ="cout " + prix;
+  playSound3();
+
+
+
 }
 
 function mouseOutMult() {
   document.getElementById("multiplier").style.backgroundColor = "grey";
   document.getElementById("multiplier").innerHTML ="multiplier X " + multiplicateur;
-
 }
 
 
-// Pour AUTOCLIC : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
+// Pour AUTOCLIC : Si le bouton n'est pas activÃ©, onMouseOver il devient rouge et affiche le prix
 document.getElementById("autoclic").onmouseover = function() {mouseOverAuto()};
 document.getElementById("autoclic").onmouseout = function() {mouseOutAuto()};
 
 function mouseOverAuto() {
 if (autoClic>0){
+
   document.getElementById("autoclic").style.backgroundColor = "red" ;
-  document.getElementById("autoclic").innerHTML ="Tu as déjà l'autoclic!";
+  document.getElementById("autoclic").innerHTML ="Tu as déjà  l'autoclic!";
  }
  else{
-   document.getElementById("autoclic").innerHTML ="Coût 500";
+   document.getElementById("autoclic").innerHTML ="cout 500";
    document.getElementById("autoclic").style.backgroundColor = "red" ;
+   playSound3();
 
  }
 }
@@ -187,13 +223,16 @@ function mouseOutAuto() {
 }
 
 
-// Pour BONUS : Si le bouton n'est pas activé, onMouseOver il devient rouge et affiche le prix
+// Pour BONUS : Si le bouton n'est pas activÃ©, onMouseOver il devient rouge et affiche le prix
 document.getElementById("bonus").onmouseover = function() {mouseOverBonus()};
 document.getElementById("bonus").onmouseout = function() {mouseOutBonus()};
 
 function mouseOverBonus() {
   document.getElementById("bonus").style.backgroundColor = "red" ;
-   document.getElementById("bonus").innerHTML ="Coût: 5000";
+   document.getElementById("bonus").innerHTML ="cout: 5000";
+   playSound3();
+
+
  }
 
 function mouseOutBonus() {
@@ -202,8 +241,4 @@ function mouseOutBonus() {
 
 }
 
-
-    })();
-=======
-// JavaScript Document
->>>>>>> master
+})();
